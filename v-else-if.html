@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-else-if</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-model="type">
+<!--        <button v-on:click="OKCheck">确定</button>-->
+
+        <div>{{OKCheck}}</div>
+<!--        <div v-if="type>=90">A</div>-->
+<!--        <div v-else-if="type>=80 && type<90">B</div>-->
+<!--        <div v-else-if="type>=70 && type<80">C</div>-->
+<!--        <div v-else>Not A B C</div>-->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#app"
+            ,data:{
+                type:80,
+                message:""
+            }
+            ,computed:{
+                OKCheck: function () {
+                    if(type>=90)
+                        this.message = "A"
+                    else if(type>=80 && type<90)
+                        this.message = "B"
+                    else if(type>=70 && type<80)
+                        this.message = "C"
+                    else
+                        this.message = "Not A B C"
+                    return this.message
+                }
+            }
+        })
+    </script>
+</body>
+</html>

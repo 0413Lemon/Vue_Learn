@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<!--基本用法-->
+<!--<div id="app">-->
+<!--    <div v-bind:title="id1">文字</div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    new Vue({-->
+<!--        el: '#app',-->
+<!--        data: {-->
+<!--            id1: 'myid'-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+
+<!--class 属性绑定-->
+<div id="app">
+    <div v-bind:class="[activeClass, errorClass]"></div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+</script>
+</body>
+</html>

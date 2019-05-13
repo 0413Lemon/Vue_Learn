@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式绑定&&计算属性</title>
+    <script src="./vue.js"></script>
+    <style>
+        .base{
+            width: 100px;
+            height: 100px;
+        }
+
+        .active{
+            background: green;
+        }
+
+        .text-danger{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="classObject">o(*￣︶￣*)o</div>
+        (宝ᴗ宝)
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+
+            computed: {
+                classObject:function () {
+                    return {
+                        base:true,
+                        active: false,
+                        'text-danger': true
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

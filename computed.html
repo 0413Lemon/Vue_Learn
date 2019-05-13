@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ site }}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                name:"Google",
+                url:"http://www.google.com"
+            },
+            computed: {
+                site: {
+                    get: function(){
+                        return this.name+' ' +this.url
+                    },
+                    set: function (valuename) {
+                        var x = valuename.split(' ')
+                        this.name = x[0]
+                        this.url = x[x.length-1]
+                    }
+                }
+            }
+        })
+        // document.write("name"+ vm.name)
+        // document.write("<br>")
+        // document.write("url" + vm.url)
+        vm.site = "菜鸟教程 http://www.runoob.com"
+        document.write("name: "+ vm.name)
+        document.write("<br>")
+        document.write("url: " + vm.url)
+    </script>
+</body>
+</html>

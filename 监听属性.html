@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听属性</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>计算器:{{counter}}</h1>
+        <button @click="counter++" style="font-size: 25px;">点一下</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app"
+            ,data:{
+                counter:1
+            }
+            ,watch:{
+                counter: function (newValue,oldValue) {
+                    alert("计算器值从"+oldValue+"变为"+newValue)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听属性_进制转换</title>
+    <script src="./vue.js"></script>
+
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+    <div id="app">
+        千米：<input v-model="kilometer">
+        米：<input v-model="meter">
+    </div>
+    <p id="info"></p>
+
+    <script>
+        var vm = new Vue({
+            el: "#app"
+            ,data: {
+                kilometer:0,
+                meter:0,
+                message:""
+            }
+            ,watch: {
+                kilometer: function (newV) {
+                    this.kilometer = newV;
+                    this.meter = newV*1000;
+                },
+                meter: function (newV) {
+                    this.meter = newV;
+                    this.kilometer = newV/1000
+
+                },
+            }
+        })
+        vm.$watch('kilometer',function (newV,oldV) {
+            document.getElementById("info").innerHTML= "修改前值为: " + oldV + "，修改后值为: " + newV;
+
+        })
+    </script>
+</body>
+</html>

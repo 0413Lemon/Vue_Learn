@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue测试</title>
+
+</head>
+<style>
+    .class1{
+        background: #444;
+        color: #eee;
+    }
+</style>
+<body>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <div id="app">
+        <div v-html="message1"></div>
+        <!--v-html指令用于输出 html 代码-->
+        <p>{{ message }}</p>
+        <!--{{}} 双大括号文本插值-->
+
+        <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
+        <br><br>
+        <div v-bind:class="{'class1':use}">
+            v-bind:class指令
+        </div>
+    </div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message:"Hello Vue.js!",
+            message1: "<h1>菜鸟测试<h1>",
+            use:false
+        }
+    });
+
+</script>
+</body>

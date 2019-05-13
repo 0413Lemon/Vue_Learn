@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首字母大写</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+<!--        <p>message</p>-->
+<!--        <p :bind:"message"></p>-->
+        <p>  原字：   {{message}}</p>
+        <p>首字母大写：{{message | capitalize}}</p>
+
+        <input v-model="message">
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app"
+            ,data:{
+                message:"asdaf"
+            }
+            ,filters:{
+                capitalize:function (value) {
+                    if(!value)
+                        return ""
+                    value = value.toString()
+                    return value.charAt(0).toUpperCase()+value.slice(1)
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
